@@ -76,27 +76,27 @@ export default function Auth({ onLogin }: AuthProps) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 flex items-center justify-center p-4 transition-colors">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white max-w-md w-full rounded-2xl shadow-xl overflow-hidden border border-slate-100"
+        className="bg-white dark:bg-slate-800 max-w-md w-full rounded-2xl shadow-xl overflow-hidden border border-slate-100 dark:border-slate-700"
       >
         <div className="p-8">
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <GraduationCap className="w-8 h-8 text-indigo-600" />
+            <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <GraduationCap className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
             </div>
-            <h1 className="text-2xl font-bold text-slate-900">
+            <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
               {isSignUp ? 'Create an Account' : 'Welcome Back'}
             </h1>
-            <p className="text-slate-500 mt-2">
+            <p className="text-slate-500 dark:text-slate-400 mt-2">
               {isSignUp ? 'Join Lumina Edu today' : 'Sign in to continue your learning journey'}
             </p>
           </div>
 
           {errorMsg && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-100 text-red-600 rounded-xl text-sm text-center">
+            <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800 text-red-600 dark:text-red-400 rounded-xl text-sm text-center">
               {errorMsg}
             </div>
           )}
@@ -109,8 +109,8 @@ export default function Auth({ onLogin }: AuthProps) {
                   onClick={() => setRole('student')}
                   className={`p-4 rounded-xl border-2 flex flex-col items-center gap-2 transition-all ${
                     role === 'student' 
-                      ? 'border-indigo-600 bg-indigo-50 text-indigo-700' 
-                      : 'border-slate-200 hover:border-slate-300 text-slate-600'
+                      ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400' 
+                      : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-400'
                   }`}
                 >
                   <GraduationCap className="w-6 h-6" />
@@ -122,8 +122,8 @@ export default function Auth({ onLogin }: AuthProps) {
                   onClick={() => setRole('teacher')}
                   className={`p-4 rounded-xl border-2 flex flex-col items-center gap-2 transition-all ${
                     role === 'teacher' 
-                      ? 'border-emerald-600 bg-emerald-50 text-emerald-700' 
-                      : 'border-slate-200 hover:border-slate-300 text-slate-600'
+                      ? 'border-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400' 
+                      : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-400'
                   }`}
                 >
                   <Presentation className="w-6 h-6" />
@@ -134,20 +134,20 @@ export default function Auth({ onLogin }: AuthProps) {
 
             {isSignUp && (
               <div className="space-y-1.5">
-                <label className="text-sm font-medium text-slate-700">Full Name</label>
+                <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Full Name</label>
                 <input
                   type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="John Doe"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
                 />
               </div>
             )}
 
             <div className="space-y-1.5">
-              <label className="text-sm font-medium text-slate-700">Email Address</label>
+              <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Email Address</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Mail className="h-5 w-5 text-slate-400" />
@@ -158,13 +158,13 @@ export default function Auth({ onLogin }: AuthProps) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
                 />
               </div>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-sm font-medium text-slate-700">Password</label>
+              <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Password</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Lock className="h-5 w-5 text-slate-400" />
@@ -176,7 +176,7 @@ export default function Auth({ onLogin }: AuthProps) {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
                 />
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function Auth({ onLogin }: AuthProps) {
               className={`w-full py-3 px-4 rounded-xl text-white font-medium flex items-center justify-center gap-2 transition-colors disabled:opacity-70 ${
                 isSignUp 
                   ? (role === 'teacher' ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-indigo-600 hover:bg-indigo-700')
-                  : 'bg-slate-900 hover:bg-slate-800'
+                  : 'bg-slate-900 hover:bg-slate-800 dark:bg-indigo-600 dark:hover:bg-indigo-700'
               }`}
             >
               {isLoading ? (
@@ -201,18 +201,18 @@ export default function Auth({ onLogin }: AuthProps) {
             </button>
           </form>
           
-          <div className="mt-6 text-center text-sm text-slate-500">
+          <div className="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">
             {isSignUp ? (
               <p>
                 Already have an account?{' '}
-                <button onClick={() => setIsSignUp(false)} className="text-indigo-600 font-medium hover:underline">
+                <button onClick={() => setIsSignUp(false)} className="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
                   Sign in
                 </button>
               </p>
             ) : (
               <p>
                 Don't have an account?{' '}
-                <button onClick={() => setIsSignUp(true)} className="text-indigo-600 font-medium hover:underline">
+                <button onClick={() => setIsSignUp(true)} className="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
                   Sign up
                 </button>
               </p>
