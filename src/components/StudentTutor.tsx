@@ -299,13 +299,13 @@ export default function StudentTutor({ course, user }: StudentTutorProps) {
           className="flex-shrink-0 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col h-full transition-none relative z-10"
         >
           <div className="p-3 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
-            <h3 className="font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-2 ml-2">
-              <BookOpen className="w-5 h-5 text-indigo-600" />
+            <h3 className="font-bold text-slate-900 dark:text-white flex items-center gap-2 ml-2">
+              <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
               Chapters
             </h3>
             <button 
               onClick={() => setIsLeftSidebarOpen(false)}
-              className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg"
+              className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors"
               title="Close Sidebar"
             >
               <PanelLeftClose className="w-5 h-5" />
@@ -326,8 +326,8 @@ export default function StudentTutor({ course, user }: StudentTutorProps) {
                   }}
                   className={`w-full text-left px-4 py-3 rounded-xl flex items-center justify-between group transition-all ${
                     activeChapterId === chapter.id 
-                      ? 'bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 text-indigo-900 dark:text-indigo-100' 
-                      : 'hover:bg-slate-50 dark:hover:bg-slate-700/50 border border-transparent text-slate-700 dark:text-slate-300'
+                      ? 'bg-indigo-50 dark:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-700 text-indigo-900 dark:text-indigo-100' 
+                      : 'hover:bg-slate-50 dark:hover:bg-slate-700/50 border border-transparent text-slate-700 dark:text-slate-200'
                   }`}
                 >
                   <div className="flex items-center gap-3 overflow-hidden">

@@ -401,21 +401,21 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
       {isLeftSidebarOpen && (
         <div className="w-80 flex-shrink-0 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col h-full transition-all">
           <div className="p-3 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
-            <h3 className="font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-2 ml-2">
-              <BookOpen className="w-5 h-5 text-indigo-600" />
+            <h3 className="font-bold text-slate-900 dark:text-white flex items-center gap-2 ml-2">
+              <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
               Chapters
             </h3>
             <div className="flex items-center gap-1">
               <button 
                 onClick={() => setIsCreatingChapter(true)}
-                className="p-1.5 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition-colors"
+                className="p-1.5 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 rounded-lg hover:bg-indigo-200 dark:hover:bg-indigo-900/80 transition-colors"
                 title="Add Chapter"
               >
                 <Plus className="w-4 h-4" />
               </button>
               <button 
                 onClick={() => setIsLeftSidebarOpen(false)}
-                className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg"
+                className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors"
                 title="Close Sidebar"
               >
                 <PanelLeftClose className="w-5 h-5" />
@@ -454,19 +454,19 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
                   }}
                   className={`w-full text-left px-4 py-3 rounded-xl flex items-center justify-between group transition-all ${
                     activeChapterId === chapter.id 
-                      ? 'bg-indigo-50 border border-indigo-200 text-indigo-900' 
-                      : 'hover:bg-slate-50 border border-transparent text-slate-700'
+                      ? 'bg-indigo-50 dark:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-700 text-indigo-900 dark:text-indigo-100' 
+                      : 'hover:bg-slate-50 dark:hover:bg-slate-700/50 border border-transparent text-slate-700 dark:text-slate-300'
                   }`}
                 >
                   <div className="flex items-center gap-3 overflow-hidden">
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium ${
-                      activeChapterId === chapter.id ? 'bg-indigo-200 text-indigo-800' : 'bg-slate-100 text-slate-500'
+                      activeChapterId === chapter.id ? 'bg-indigo-200 dark:bg-indigo-800 text-indigo-800 dark:text-indigo-200' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
                     }`}>
                       {idx + 1}
                     </div>
                     <span className="font-medium truncate">{chapter.title}</span>
                   </div>
-                  <ChevronRight className={`w-4 h-4 ${activeChapterId === chapter.id ? 'text-indigo-400' : 'text-slate-300 opacity-0 group-hover:opacity-100'}`} />
+                  <ChevronRight className={`w-4 h-4 ${activeChapterId === chapter.id ? 'text-indigo-400 dark:text-indigo-500' : 'text-slate-300 dark:text-slate-600 opacity-0 group-hover:opacity-100'}`} />
                 </button>
               ))
             )}
@@ -556,7 +556,7 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
                     </div>
                   ) : (
                     <div className="flex items-center gap-3 group">
-                      <h2 className="text-2xl font-semibold text-slate-800">
+                      <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
                         {activeChapter.title}
                       </h2>
                       <button 
@@ -564,7 +564,7 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
                           setEditedChapterTitle(activeChapter.title);
                           setIsEditingChapterTitle(true);
                         }}
-                        className="p-1.5 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg opacity-0 group-hover:opacity-100 transition-all"
+                        className="p-1.5 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-lg opacity-0 group-hover:opacity-100 transition-all"
                         title="Rename Chapter"
                       >
                         <Edit2 size={16} />
