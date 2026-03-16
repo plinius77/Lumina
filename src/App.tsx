@@ -194,6 +194,25 @@ export default function App() {
     }
   };
 
+  const handleUpdateCourse = async (id: string, name: string, description: string) => {
+    if (!user) return;
+    
+    const { error } = await supabase
+      .from('courses')
+      .update({ name, description })
+      .eq('id', id);
+
+    if (!error) {
+      setCourses(courses.map(c => c.id === id ? { ...c, name, description } : c));
+      if (activeCourse?.id === id) {
+        setActiveCourse({ ...activeCourse, name, description });
+      }
+    } else {
+      console.error(error);
+      alert('Failed to update course.');
+    }
+  };
+
   if (isInitializing) {
     return (
       <div className="min-h-screen bg-slate-50 dark:bg-slate-900 flex items-center justify-center transition-colors">
@@ -228,6 +247,7 @@ export default function App() {
             onSelectCourse={setActiveCourse}
             onCreateCourse={handleCreateCourse}
             onJoinCourse={handleJoinCourse}
+            onUpdateCourse={handleUpdateCourse}
             searchQuery={searchQuery}
             onSearchChange={setSearchQuery}
           />

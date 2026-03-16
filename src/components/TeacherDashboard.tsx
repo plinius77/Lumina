@@ -50,9 +50,6 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
   // Editing states
   const [isEditingChapterTitle, setIsEditingChapterTitle] = useState(false);
   const [editedChapterTitle, setEditedChapterTitle] = useState('');
-  const [isEditingCourseInfo, setIsEditingCourseInfo] = useState(false);
-  const [editedCourseName, setEditedCourseName] = useState(course.name);
-  const [editedCourseDescription, setEditedCourseDescription] = useState(course.description);
 
   useEffect(() => {
     fetchChapters();
@@ -178,27 +175,6 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
     if (!activeChapterId || !editedChapterTitle.trim()) return;
     await updateChapter(activeChapterId, { title: editedChapterTitle.trim() });
     setIsEditingChapterTitle(false);
-  };
-
-  const handleUpdateCourseInfo = async () => {
-    if (!editedCourseName.trim()) return;
-    
-    const { error } = await supabase
-      .from('courses')
-      .update({
-        name: editedCourseName.trim(),
-        description: editedCourseDescription.trim()
-      })
-      .eq('id', course.id);
-
-    if (!error) {
-      alert('Course information updated successfully!');
-      setIsEditingCourseInfo(false);
-      window.location.reload(); 
-    } else {
-      console.error(error);
-      alert('Failed to update course information.');
-    }
   };
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -524,69 +500,18 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
             <div className="w-full max-w-2xl bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-8 border border-slate-200 dark:border-slate-700">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Course Information</h3>
-                {!isEditingCourseInfo ? (
-                  <button 
-                    onClick={() => {
-                      setEditedCourseName(course.name);
-                      setEditedCourseDescription(course.description);
-                      setIsEditingCourseInfo(true);
-                    }}
-                    className="flex items-center gap-2 text-sm text-indigo-600 dark:text-indigo-400 font-semibold hover:text-indigo-700 dark:hover:text-indigo-300"
-                  >
-                    <Edit2 size={16} />
-                    Edit Info
-                  </button>
-                ) : (
-                  <div className="flex gap-2">
-                    <button 
-                      onClick={handleUpdateCourseInfo}
-                      className="p-1.5 bg-emerald-100 text-emerald-700 rounded-lg hover:bg-emerald-200"
-                    >
-                      <Check size={18} />
-                    </button>
-                    <button 
-                      onClick={() => setIsEditingCourseInfo(false)}
-                      className="p-1.5 bg-slate-200 text-slate-600 rounded-lg hover:bg-slate-300"
-                    >
-                      <X size={18} />
-                    </button>
-                  </div>
-                )}
               </div>
 
-              {isEditingCourseInfo ? (
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Course Name</label>
-                    <input 
-                      type="text"
-                      value={editedCourseName}
-                      onChange={(e) => setEditedCourseName(e.target.value)}
-                      className="w-full px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Description</label>
-                    <textarea 
-                      value={editedCourseDescription}
-                      onChange={(e) => setEditedCourseDescription(e.target.value)}
-                      rows={4}
-                      className="w-full px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none resize-none"
-                    />
-                  </div>
+              <div className="space-y-4 text-left">
+                <div>
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Course Name</p>
+                  <p className="text-slate-800 dark:text-slate-200 font-medium">{course.name}</p>
                 </div>
-              ) : (
-                <div className="space-y-4 text-left">
-                  <div>
-                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Course Name</p>
-                    <p className="text-slate-800 dark:text-slate-200 font-medium">{course.name}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Description</p>
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{course.description || 'No description provided.'}</p>
-                  </div>
+                <div>
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Description</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{course.description || 'No description provided.'}</p>
                 </div>
-              )}
+              </div>
             </div>
           </div>
         ) : (
