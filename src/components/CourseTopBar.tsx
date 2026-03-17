@@ -123,7 +123,7 @@ export default function CourseTopBar({ user, activeCourse, onBack, onLogout, sea
               </div>
               {activeCourse && (
                 <div className="hidden md:flex items-center gap-2 ml-4 pl-4 border-l border-slate-200 dark:border-slate-700">
-                  <span className="text-sm font-medium text-slate-600 dark:text-slate-300">{activeCourse.name}</span>
+                  <span className="text-sm font-medium text-slate-600 dark:text-white">{activeCourse.name}</span>
                   <span className="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded-md text-slate-500 dark:text-slate-400 font-mono">{activeCourse.code}</span>
                 </div>
               )}

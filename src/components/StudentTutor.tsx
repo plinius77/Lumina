@@ -326,13 +326,13 @@ export default function StudentTutor({ course, user }: StudentTutorProps) {
                   }}
                   className={`w-full text-left px-4 py-3 rounded-xl flex items-center justify-between group transition-all ${
                     activeChapterId === chapter.id 
-                      ? 'bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 text-indigo-900 dark:text-indigo-100' 
-                      : 'hover:bg-slate-50 dark:hover:bg-slate-700/50 border border-transparent text-slate-700 dark:text-slate-300'
+                      ? 'bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 text-indigo-900 dark:text-white' 
+                      : 'hover:bg-slate-50 dark:hover:bg-slate-700/50 border border-transparent text-slate-700 dark:text-slate-200'
                   }`}
                 >
                   <div className="flex items-center gap-3 overflow-hidden">
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium flex-shrink-0 ${
-                      activeChapterId === chapter.id ? 'bg-indigo-200 dark:bg-indigo-800 text-indigo-800 dark:text-indigo-200' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
+                      activeChapterId === chapter.id ? 'bg-indigo-200 dark:bg-indigo-800 text-indigo-800 dark:text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
                     }`}>
                       {idx + 1}
                     </div>

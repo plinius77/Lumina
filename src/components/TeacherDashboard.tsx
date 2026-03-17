@@ -454,8 +454,8 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
                   }}
                   className={`w-full text-left px-4 py-3 rounded-xl flex items-center justify-between group transition-all ${
                     activeChapterId === chapter.id 
-                      ? 'bg-indigo-50 border border-indigo-200 text-indigo-900' 
-                      : 'hover:bg-slate-50 border border-transparent text-slate-700'
+                      ? 'bg-indigo-50 border border-indigo-200 text-indigo-900 dark:bg-indigo-900/30 dark:border-indigo-800 dark:text-indigo-100' 
+                      : 'hover:bg-slate-50 border border-transparent text-slate-700 dark:text-slate-300 dark:hover:bg-slate-700/50'
                   }`}
                 >
                   <div className="flex items-center gap-3 overflow-hidden">
@@ -556,7 +556,7 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
                     </div>
                   ) : (
                     <div className="flex items-center gap-3 group">
-                      <h2 className="text-2xl font-semibold text-slate-800">
+                      <h2 className="text-2xl font-semibold text-slate-800 dark:text-white">
                         {activeChapter.title}
                       </h2>
                       <button 
@@ -578,7 +578,7 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
                 <button
                   onClick={() => setActiveTab('material')}
                   className={`px-6 py-3 font-medium text-sm transition-all border-b-2 whitespace-nowrap ${
-                    activeTab === 'material' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'
+                    activeTab === 'material' ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400' : 'border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
                   }`}
                 >
                   Course Material
@@ -586,7 +586,7 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
                 <button
                   onClick={() => setActiveTab('reading')}
                   className={`px-6 py-3 font-medium text-sm transition-all border-b-2 whitespace-nowrap ${
-                    activeTab === 'reading' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'
+                    activeTab === 'reading' ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400' : 'border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
                   }`}
                 >
                   Relevant Reading
@@ -594,7 +594,7 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
                 <button
                   onClick={() => setActiveTab('quiz')}
                   className={`px-6 py-3 font-medium text-sm transition-all border-b-2 whitespace-nowrap ${
-                    activeTab === 'quiz' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'
+                    activeTab === 'quiz' ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400' : 'border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
                   }`}
                 >
                   Chapter Quiz
@@ -602,7 +602,7 @@ export default function TeacherDashboard({ course, user }: TeacherDashboardProps
                 <button
                   onClick={() => setActiveTab('analytics')}
                   className={`px-6 py-3 font-medium text-sm transition-all border-b-2 whitespace-nowrap ${
-                    activeTab === 'analytics' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700'
+                    activeTab === 'analytics' ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400' : 'border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
                   }`}
                 >
                   Analytics
